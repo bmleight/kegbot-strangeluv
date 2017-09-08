@@ -1,7 +1,4 @@
-const Normalizr = require('normalizr');
-const Denormalizr = require('denormalizr');
 const WebClient = require('../utils/web-client');
-const Schema = require('../schema');
 const BeerTypes = require('../action-types/beer');
 
 const internals = {};
@@ -17,8 +14,7 @@ exports.beersLoadBegin = () => {
 exports.beersLoadSuccess = (beers) => {
 
     beers = internals.idKeyed(beers);
-console.log('beers load success');
-console.log(beers);
+
     return {
         type: BeerTypes.BEERS_LOAD_SECCESS,
         payload: { records: { entities: { beers } } }
@@ -44,8 +40,7 @@ exports.loadBeer = () => {
 
         getBeers
         .then(({ data }) => {
-            console.log('got data');
-            console.log(data);
+
             dispatch(actions.beersLoadSuccess(data));
         })
         .catch((error) => {

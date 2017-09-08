@@ -1,6 +1,5 @@
 // Just the modules necessary for initial render!
 const CoreLayout = require('../layouts/CoreLayout');
-const Home = require('./home');
 const BeerRoute = require('./beer');
 // const CounterRoute = require('./counter');
 

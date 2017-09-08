@@ -1,7 +1,7 @@
 const Reselect = require('reselect');
 
 const internals = {
-    all: (state) => state.beers.all,
+    all: (state) => state.beers.all
 };
 
 // Actual, physical records that live in the API
