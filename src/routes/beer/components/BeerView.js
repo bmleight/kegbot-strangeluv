@@ -23,6 +23,7 @@ class BeerView extends React.Component {
                 <p>Here is what is on tap!</p>
                 <ul>
                     {beers.map((beer) =>
+
                         <li key={beer.id}>{beer.name}</li>
                     )}
                 </ul>
