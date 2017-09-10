@@ -3,7 +3,7 @@ const React = require('react');
 class BeerView extends React.Component {
 
     static propTypes = {
-        beers: React.PropTypes.object,
+        beers: React.PropTypes.array,
         getBeers: React.PropTypes.func.isRequired
         // isLoading: React.PropTypes.bool,
         // errorMessage: React.PropTypes.string
@@ -18,18 +18,14 @@ class BeerView extends React.Component {
 
         const { beers } = this.props;
 
-        console.log(beers);
-
         return (
             <div>
-                <h4>Welcome to Kegbot</h4>
                 <p>Here is what is on tap!</p>
                 <ul>
-                    <li>Smoked Pumpkin Porter</li>
-                    <li>Brett IPA</li>
-                    <li>Farmhouse Smoked Pumpkin Porter</li>
+                    {beers.map((beer) =>
+                        <li key={beer.id}>{beer.name}</li>
+                    )}
                 </ul>
-                <p>Isn't that neat!!!</p>
             </div>
         );
     }

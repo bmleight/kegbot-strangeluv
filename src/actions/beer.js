@@ -13,11 +13,9 @@ exports.beersLoadBegin = () => {
 
 exports.beersLoadSuccess = (beers) => {
 
-    beers = internals.idKeyed(beers);
-
     return {
         type: BeerTypes.BEERS_LOAD_SECCESS,
-        payload: { records: { entities: { beers } } }
+        payload: beers
     };
 };
 
@@ -50,13 +48,4 @@ exports.loadBeer = () => {
 
         return getBeers;
     };
-};
-
-internals.idKeyed = (records) => {
-
-    return records.reduce((idKeyed, record) => {
-
-        idKeyed[record.id] = record;
-        return idKeyed;
-    }, {});
 };

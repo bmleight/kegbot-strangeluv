@@ -7,9 +7,9 @@ const internals = {};
 // What state and actions do we want to hook-up?
 internals.connect = Connect(
     (state) => ({
-        beers: state.beers && state.beers.all
-        // isLoading: state.beers.isLoading,
-        // errorMessage: state.beers.error && 'We had an error finding beer.'
+        beers: state.beer.all,
+        isLoading: state.beer.isLoading,
+        errorMessage: state.beer.error && 'We had an error finding beer.'
     }),
     {
         getBeers: BeerAct.loadBeer

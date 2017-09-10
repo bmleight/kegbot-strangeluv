@@ -4,7 +4,7 @@ const internals =  {
     initial: () => ({
         isLoading: false,
         error: null,
-        all: {}
+        all: []
     })
 };
 
@@ -22,7 +22,6 @@ module.exports = (state, action) => {
 
         case BeerTypes.BEERS_LOAD_SECCESS:
             const beers = action.payload;
-            console.log(beers);
             return Object.assign({}, state, {
                 isLoading: false,
                 error: null,
