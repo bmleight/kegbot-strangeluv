@@ -4,9 +4,9 @@ class BeerView extends React.Component {
 
     static propTypes = {
         beers: React.PropTypes.array,
-        getBeers: React.PropTypes.func.isRequired
-        // isLoading: React.PropTypes.bool,
-        // errorMessage: React.PropTypes.string
+        getBeers: React.PropTypes.func.isRequired,
+        isLoading: React.PropTypes.bool,
+        errorMessage: React.PropTypes.string
     }
 
     componentWillMount() {
@@ -16,11 +16,16 @@ class BeerView extends React.Component {
 
     render() {
 
-        const { beers } = this.props;
+        const { beers, isLoading, errorMessage } = this.props;
 
         return (
             <div>
                 <p>Here is what is on tap!</p>
+
+                {isLoading && <div>loading...</div>}
+
+                {errorMessage && <div>{errorMessage}</div>}
+
                 <ul>
                     {beers.map((beer) =>
 

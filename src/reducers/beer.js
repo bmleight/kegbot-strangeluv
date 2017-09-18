@@ -21,11 +21,10 @@ module.exports = (state, action) => {
             });
 
         case BeerTypes.BEERS_LOAD_SECCESS:
-            const beers = action.payload;
             return Object.assign({}, state, {
                 isLoading: false,
                 error: null,
-                all: beers
+                all: action.payload
             });
 
         case BeerTypes.BEERS_LOAD_ERROR:
