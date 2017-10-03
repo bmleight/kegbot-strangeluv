@@ -1,4 +1,4 @@
-const BeerTypes = require('../action-types/beer');
+const BeerTypes = require('kegbot-middle/action-types/beer');
 
 const internals =  {
     initial: () => ({
