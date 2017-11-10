@@ -1,5 +1,6 @@
 const Connect = require('react-redux').connect;
-const BeerAct = require('actions/beer');
+// const BeerAct = require('actions/beer');
+const BeerAct = require('kegbot-middle/actions/beer');
 const BeerView = require('../components/BeerView');
 
 const internals = {};

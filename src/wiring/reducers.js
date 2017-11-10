@@ -1,11 +1,16 @@
 const Redux = require('redux');
 const Wiring = require('./');
+const Beer = require('kegbot-middle/reducers/beer');
+
+console.log(Beer);
+console.log(Wiring.reducers());
 
 exports.makeRoot = (asyncReducers) => {
 
     return Redux.combineReducers({
         ...Wiring.reducers(), // Everything in reducers/
-        ...asyncReducers
+        ...asyncReducers,
+        beer: Beer
     });
 };
 
