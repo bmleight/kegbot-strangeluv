@@ -3,8 +3,6 @@ const Router = require('react-router').Router;
 const Provider = require('react-redux').Provider;
 const MuiThemeProvider = require('material-ui/styles/MuiThemeProvider').default;
 const getMuiTheme = require('material-ui/styles/getMuiTheme').default;
-// const MuiTheme = require('../styles/themeStyles');
-// const getMuiTheme = require('material-ui/styles/getMuiTheme').default;
 
 module.exports = class App extends React.Component {
 
