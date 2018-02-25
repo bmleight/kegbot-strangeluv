@@ -22,9 +22,6 @@ class BeerView extends React.Component {
 
         const beer = beers && beers[0];
 
-        console.log(beer);
-        // return (<div>test</div>);
-
         if (typeof beer === 'undefined' || isLoading) {
             return (
                 <div>loading</div>
