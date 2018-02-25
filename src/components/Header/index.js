@@ -1,18 +1,8 @@
 const React = require('react');
-const Router = require('react-router');
-const Classes = require('./styles.scss');
 
 module.exports = () => (
 
     <div>
-        <h1>Strangeluv</h1>
-        <Router.IndexLink to='/' activeClassName={Classes.activeRoute}>
-            Home
-        </Router.IndexLink>
-        {' · '}
-        <Router.Link to='/counter' activeClassName={Classes.activeRoute}>
-            Counter
-        </Router.Link>
+        <h1>Kegbot</h1>
     </div>
-
 );

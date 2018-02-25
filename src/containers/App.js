@@ -1,6 +1,8 @@
 const React = require('react');
 const Router = require('react-router').Router;
 const Provider = require('react-redux').Provider;
+const MuiThemeProvider = require('material-ui/styles/MuiThemeProvider').default;
+const getMuiTheme = require('material-ui/styles/getMuiTheme').default;
 
 module.exports = class App extends React.Component {
 
@@ -17,9 +19,11 @@ module.exports = class App extends React.Component {
 
         return (
             <Provider store={store}>
-                <div style={{ height: '100%' }}>
-                    <Router history={history} children={routes} key={routerKey} />
-                </div>
+                <MuiThemeProvider muiTheme={getMuiTheme()}>
+                    <div style={{ height: '100%' }}>
+                        <Router history={history} children={routes} key={routerKey} />
+                    </div>
+                </MuiThemeProvider>
             </Provider>
         );
     }
