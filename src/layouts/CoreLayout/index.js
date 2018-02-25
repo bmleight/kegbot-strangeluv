@@ -1,5 +1,6 @@
 const React = require('react');
 const Header = require('../../components/Header');
+const Footer = require('../../components/Footer');
 const Classes = require('./styles.scss');
 
 // Pull global styles
@@ -12,6 +13,7 @@ const CoreLayout = ({ children }) => (
         <div className={Classes.mainContainer}>
             {children}
         </div>
+        <Footer />
     </div>
 
 );
