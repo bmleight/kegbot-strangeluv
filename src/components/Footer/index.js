@@ -6,7 +6,5 @@ module.exports = () => (
 
     <Tabs className={Styles.footer}>
         <Tab label='ON TAP' />
-        <Tab label='GAMES' />
-        <Tab label='DRIVE' />
     </Tabs>
 );
