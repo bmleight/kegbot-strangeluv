@@ -1,5 +1,4 @@
 const React = require('react');
-const Header = require('../../components/Header');
 const Footer = require('../../components/Footer');
 const Classes = require('./styles.scss');
 
@@ -8,8 +7,7 @@ require('../../styles/core.scss');
 
 const CoreLayout = ({ children }) => (
 
-    <div className='container text-center'>
-        <Header />
+    <div>
         <div className={Classes.mainContainer}>
             {children}
         </div>

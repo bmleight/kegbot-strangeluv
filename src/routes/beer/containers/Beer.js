@@ -13,7 +13,8 @@ internals.connect = Connect(
         errorMessage: state.beer.error && 'We had an error finding beer.'
     }),
     {
-        getBeers: BeerAct.loadBeer
+        getBeers: BeerAct.loadBeer,
+        rateBeer: BeerAct.rateBeer
     }
 );
 
