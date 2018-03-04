@@ -131,7 +131,7 @@ class BeerView extends React.Component {
             <div>
                 <div className={Styles.wrapper}>
                     <div className={Styles.half}>
-                        <img src={beer.image} />
+                        <img className={Styles.beerImage} src={beer.image} />
                     </div>
                     <div className={Styles.half}>
                         <h1>{beer.name}</h1>
