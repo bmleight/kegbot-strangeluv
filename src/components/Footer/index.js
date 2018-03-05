@@ -12,9 +12,6 @@ class Footer extends React.Component {
 
         super(props, context);
 
-        // this.renderRatings = this._renderRatings.bind(this);
-        // this.toggleRateBeerDialog = this._toggleRateBeerDialog.bind(this);
-        // this.selectRating = this._selectRating.bind(this);
         this.handleActive = this._handleActive.bind(this);
     }
 
