@@ -1,5 +1,5 @@
 const React = require('react');
-const Footer = require('../../components/Footer');
+const Footer = require('../../containers/Footer');
 const Classes = require('./styles.scss');
 
 // Pull global styles
