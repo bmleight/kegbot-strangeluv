@@ -20,7 +20,7 @@ internals.calculateAvgRating = (ratings) => {
 class BeerView extends React.Component {
 
     static propTypes = {
-        beers: React.PropTypes.array,
+        beers: React.PropTypes.object,
         getBeers: React.PropTypes.func.isRequired,
         isLoading: React.PropTypes.bool,
         errorMessage: React.PropTypes.string,
