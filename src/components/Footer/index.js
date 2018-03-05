@@ -18,9 +18,6 @@ class Footer extends React.Component {
     _handleActive(tab) {
 
         const route = tab.props['data-route'];
-        console.log(route);
-        console.log(this);
-        console.log(this.props);
         this.props.navigate(route);
     }
 
