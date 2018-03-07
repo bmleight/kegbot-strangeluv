@@ -144,9 +144,9 @@ class BeerView extends React.Component {
                 </div>
                 <br />
                 <br />
-                <div>{beer.description}</div>
+                <div style={{padding:'0 27px'}}>{beer.description}</div>
                 <br />
-                <div>
+                <div style={{padding:'0 27px'}}>
                     <h2>Ratings:</h2>
                     <div>{this.renderRatings()}</div>
                     <br />
@@ -163,7 +163,7 @@ class BeerView extends React.Component {
                     <RadioButtonGroup name='beer_rating' onChange={this.selectRating}>
                         <RadioButton
                             value='1'
-                            label='1 - Gross'
+                            label='1'
                         />
                         <RadioButton
                             value='2'
@@ -171,7 +171,7 @@ class BeerView extends React.Component {
                         />
                         <RadioButton
                             value='3'
-                            label='3 - OK'
+                            label='3'
                         />
                         <RadioButton
                             value='4'
@@ -179,7 +179,7 @@ class BeerView extends React.Component {
                         />
                         <RadioButton
                             value='5'
-                            label='5 - MMMMM'
+                            label='5'
                         />
                     </RadioButtonGroup>
                 </Dialog>
