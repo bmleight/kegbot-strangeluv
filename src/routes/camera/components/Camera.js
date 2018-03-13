@@ -30,11 +30,11 @@ class Camera extends React.Component {
         const voices = window.speechSynthesis.getVoices();
         // console.log(voices);
 
-        this.msg.voice = voices[10]; // Note: some voices don't support altering params
+        this.msg.voice = voices[5]; // Note: some voices don't support altering params
         this.msg.voiceURI = 'native';
         this.msg.volume = 1; // 0 to 1
         this.msg.rate = 1; // 0.1 to 10
-        this.msg.pitch = 2; //0 to 2
+        this.msg.pitch = 1; //0 to 2
         this.msg.lang = 'en-US';
 
         const that = this;
