@@ -14,7 +14,6 @@ class Camera extends React.Component {
 
         this.onFaceDetect = this._onFaceDetect.bind(this);
 
-        // const that = this;
         this.tracker = new tracking.ObjectTracker('face');
         this.tracker.setInitialScale(4);
         this.tracker.setStepSize(2);
@@ -24,57 +23,59 @@ class Camera extends React.Component {
 
     _onFaceDetect(event) {
 
+        // TODO only draw when the video feed is being displayed
         const context = this.canvas.getContext('2d');
         context.clearRect(0, 0, this.canvas.width, this.canvas.height);
         event.data.forEach(function(rect) {
 
             this.props.faceDetect(rect);
             context.strokeRect(rect.x, rect.y, rect.width, rect.height);
-            console.log(`${rect.x} ${rect.y} ${rect.width} ${rect.height}`);
         }.bind(this));
     }
 
     componentWillReceiveProps(nextProps) {
 
         if (nextProps.isFaceDetectionRunning !== this.props.isFaceDetectionRunning) {
-            // console.log('oh shit, they are out of whack...something should happen!');
 
             if (nextProps.isFaceDetectionRunning) {
                 if (!this.trackerTask) {
-                    this.trackerTask = tracking.track('#video', this.tracker, { camera: true });
-                    this.canvas = document.getElementById('canvas');
-                    this.context = this.canvas.getContext('2d');
-                    this.context.strokeStyle = '#a64ceb';
+                    this.startTracking();
                 }
                 else {
-                    this.trackerTask.run();
+                    this.restartTracking();
+
                 }
             }
             else {
-                this.trackerTask.stop();
-                // console.log('stopping');
+                this.stopTracking();
+
             }
         }
     }
 
     componentDidMount() {
 
-        // const video = document.getElementById('video');
-
-
         if (this.props.isFaceDetectionRunning) {
-            this.trackerTask = tracking.track('#video', this.tracker, { camera: true });
-            this.canvas = document.getElementById('canvas');
-            this.context = this.canvas.getContext('2d');
-            this.context.strokeStyle = '#a64ceb';
-            // console.log('stopping');
-            // this.trackerTask.stop();
+            this.startTracking();
         }
     }
 
-    componentWillUpdate() {
+    startTracking() {
 
-        return false;
+        this.trackerTask = tracking.track('#video', this.tracker, { camera: true });
+        this.canvas = document.getElementById('canvas');
+        this.context = this.canvas.getContext('2d');
+        this.context.strokeStyle = '#a64ceb';
+    }
+
+    stopTrackng() {
+
+        this.trackerTask.stop();
+    }
+
+    restartTracking() {
+
+        this.trackerTask.run();
     }
 
     render() {

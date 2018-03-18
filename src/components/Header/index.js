@@ -23,25 +23,21 @@ class Header extends React.Component {
 
             <AppBar
                 title="Kegbot"
-                iconElementLeft={
-                    <IconMenu
-                        iconButtonElement={
-                            <IconButton><MenuIcon color='white' /></IconButton>
-                        }
-                        targetOrigin={{horizontal: 'right', vertical: 'top'}}
-                        anchorOrigin={{horizontal: 'right', vertical: 'top'}}
-                    >
-                        <MenuItem primaryText='Face Detection' onClick={this.props.toggleFaceDetection}/>
-                    </IconMenu>
-                }
+                // iconElementLeft={
+                //     <IconMenu
+                //         iconButtonElement={
+                //             <IconButton><MenuIcon color='white' /></IconButton>
+                //         }
+                //         targetOrigin={{horizontal: 'right', vertical: 'top'}}
+                //         anchorOrigin={{horizontal: 'right', vertical: 'top'}}
+                //     >
+                //         <MenuItem primaryText='Face Detection' />
+                //     </IconMenu>
+                // }
                 iconElementRight={
                     <div>
-                        {this.props.isFaceDetectionRunning &&
-                            <IconButton><VisibilityIcon color='white' /></IconButton>
-                        }
-                        {this.props.face &&
-                            <IconButton><FaceIcon color='white' /></IconButton>
-                        }
+                        <IconButton onClick={this.props.toggleFaceDetection}><VisibilityIcon color={this.props.isFaceDetectionRunning ? 'white' : 'lightgray'} /></IconButton>
+                        <IconButton><FaceIcon color={this.props.face ? 'white' : 'lightgray'} /></IconButton>
                     </div>
                 }
             />
