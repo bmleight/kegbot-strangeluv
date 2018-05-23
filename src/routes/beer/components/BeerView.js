@@ -32,7 +32,6 @@ class BeerView extends React.Component {
         selectedRating: null
     };
 
-
     constructor(props, context) {
 
         super(props, context);
@@ -41,6 +40,7 @@ class BeerView extends React.Component {
         this.toggleRateBeerDialog = this._toggleRateBeerDialog.bind(this);
         this.selectRating = this._selectRating.bind(this);
         this.submitRating = this._submitRating.bind(this);
+        this.answerInteraction = this._answerInteraction.bind(this);
     }
 
     componentWillMount() {
@@ -95,9 +95,14 @@ class BeerView extends React.Component {
         this.setState({ rateBeerDialogOpen: false, selectedRating: null });
     }
 
+    _answerInteraction(answerId) {
+
+        this.props.answerInteraction(answerId);
+    }
+
     render() {
 
-        const { beers, isLoading, errorMessage } = this.props;
+        const { beers, isLoading, errorMessage, interaction } = this.props;
 
         const beer = beers[1];
 
@@ -127,13 +132,36 @@ class BeerView extends React.Component {
             />
         ];
 
+        // console.log(interaction);
+
+        let interactionActions = [];
+        let interactionName = 'No interaction started yet!';
+        if (interaction) {
+
+            if (interaction.answers) {
+
+                interactionActions = interaction.answers.map((answer, index) => {
+
+                    return (
+                        <FlatButton
+                            label={answer.text}
+                            primary
+                            onClick={() => this.answerInteraction(index)}
+                        />
+                    );
+                });
+            }
+            interactionName = interaction.name;
+        }
+
+
         return (
             <div>
                 <div className={Styles.wrapper}>
-                    <div className={Styles.half}>
+                    <div className={Styles.oneQuater}>
                         <img className={Styles.beerImage} src={beer.image} />
                     </div>
-                    <div className={Styles.half}>
+                    <div className={Styles.threeQuaters}>
                         <h1>{beer.name}</h1>
                         <div>Clone of {beer.cloneBeer.brewery.name}&rsquo;s {beer.cloneBeer.name}</div>
                         <div>Brewed by {beer.cloneBeer.brewer.name}</div>
@@ -182,6 +210,15 @@ class BeerView extends React.Component {
                             label='5'
                         />
                     </RadioButtonGroup>
+                </Dialog>
+                <Dialog
+                    title={interactionName}
+                    actions={interactionActions}
+                    modal={false}
+                    open={interaction !== null}
+                    onRequestClose={this.toggleRateBeerDialog}
+                    dialogSubmit={this.submitRating}
+                >
                 </Dialog>
             </div>
         );

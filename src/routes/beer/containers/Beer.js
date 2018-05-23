@@ -1,6 +1,7 @@
 const Connect = require('react-redux').connect;
 // const BeerAct = require('actions/beer');
-const BeerAct = require('kegbot-middle/actions/beer');
+const BeerAction = require('kegbot-middle/actions/beer');
+const InteractionAction = require('kegbot-middle/actions/interaction');
 const BeerView = require('../components/BeerView');
 
 const internals = {};
@@ -10,11 +11,13 @@ internals.connect = Connect(
     (state) => ({
         beers: state.beer.all,
         isLoading: state.beer.isLoading,
-        errorMessage: state.beer.error && 'We had an error finding beer.'
+        errorMessage: state.beer.error && 'We had an error finding beer.',
+        interaction: state.interaction.interaction
     }),
     {
-        getBeers: BeerAct.loadBeer,
-        rateBeer: BeerAct.rateBeer
+        getBeers: BeerAction.loadBeer,
+        rateBeer: BeerAction.rateBeer,
+        answerInteraction: InteractionAction.answerInteraction
     }
 );
 

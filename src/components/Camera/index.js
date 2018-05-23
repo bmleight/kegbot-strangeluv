@@ -62,26 +62,32 @@ class Camera extends React.Component {
 
     startTracking() {
 
+        console.log('START TRACKERING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
         this.trackerTask = tracking.track('#video', this.tracker, { camera: true });
         this.canvas = document.getElementById('canvas');
         this.context = this.canvas.getContext('2d');
         this.context.strokeStyle = '#a64ceb';
     }
 
-    stopTrackng() {
+    stopTracking() {
 
+        console.log('STOP TRACKERING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
         this.trackerTask.stop();
     }
 
     restartTracking() {
 
+        console.log('RESTART TRACKERING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
         this.trackerTask.run();
     }
 
     render() {
 
+        const styles = {
+            visibility:'hidden'
+        };
         return (
-            <div style={{visibility:'hidden'}}>
+            <div style={styles}>
                 <video id="video" width="640" height="480" preload autoPlay loop muted></video>
                 <canvas id="canvas" width="640" height="480"></canvas>
             </div>

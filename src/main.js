@@ -4,6 +4,7 @@ const SyncHistoryWithStore = require('react-router-redux').syncHistoryWithStore;
 const CreateStore = require('./wiring/create-store');
 const History = require('./wiring/history');
 const AppContainer = require('./containers/App');
+const Initializers = require('./initializers');
 
 // Create redux store and sync history with react-router-redux
 
@@ -12,6 +13,9 @@ const store = CreateStore(initialState);
 const enhancedHistory = SyncHistoryWithStore(History, store, {
     selectLocationState: (state) => state.router
 });
+
+// Run initializers... anything that will need to use or subscribe to the store
+Initializers.run(store);
 
 // Developer Tools Setup
 

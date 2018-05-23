@@ -1,8 +1,7 @@
 exports.run = (store) => {
 
     const initializers = [
-        // require('./auth-token'),
-        require('./face-detection')
+        require('./kegbot')
     ];
 
     initializers.forEach((init) => init(store));
