@@ -75,7 +75,7 @@ const internals = {
                 },
                 {
                     text: 'No',
-                    response: 'why are you talking to me then'
+                    response: 'go away'
                 }
             ]
         },
@@ -91,22 +91,22 @@ const internals = {
                 'The three CEOS then ask him, why arent you ordering a Guinness',
                 'He replies if you guys arent drinking beer than neither will I'
             ]
-        },
-        {
-            name: 'do you want a treat Star',
-            type: 'question',
-            text: 'do you want a treat Star',
-            answers: [
-                {
-                    text: 'Yes',
-                    response: 'of course you do warrior princess!'
-                },
-                {
-                    text: 'No',
-                    response: 'what?!?!?!'
-                }
-            ]
-        }
+        }//,
+        // {
+        //     name: 'do you want a treat Star',
+        //     type: 'question',
+        //     text: 'do you want a treat Star',
+        //     answers: [
+        //         {
+        //             text: 'Yes',
+        //             response: 'of course you do warrior princess!'
+        //         },
+        //         {
+        //             text: 'No',
+        //             response: 'what?!?!?!'
+        //         }
+        //     ]
+        // }
     ]
 };
 
